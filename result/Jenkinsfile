@@ -1,5 +1,9 @@
 pipeline{
   agent any
+
+  tools {
+     nodejs 'NodeJS 19.4.0'
+  }
  
   stages{
       stage("build"){
@@ -8,7 +12,8 @@ pipeline{
         }
         steps{
            echo 'Installing result app..'
-           dir('result'){
+           dir('worker'){
+             sh 'npm install'
           }
         }
       }
@@ -18,8 +23,10 @@ pipeline{
            changeset "**/result/**"
         }
         steps{
-           echo 'Running tests on result app..'
+           echo 'Running Unit Tests on result app..'
            dir('result'){
+             sh 'nmp install'
+             sh 'nmp test'
            }
         }
 
