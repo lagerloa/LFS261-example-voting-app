@@ -1,24 +1,24 @@
 pipeline{
   agent any
 
-  tools {
+  tools{
      nodejs 'NodeJS 19.4.0'
   }
  
   stages{
-      stage("build"){
+      stage(build){
         when{
            changeset "**/result/**"
         }
         steps{
-           echo 'Installing result app..'
-           dir('worker'){
+           echo 'Compiling result app..'
+           dir('result'){
              sh 'npm install'
            } 
         }
       }
 
-      stage("test"){
+      stage(test){
         when{
            changeset "**/result/**"
         }
