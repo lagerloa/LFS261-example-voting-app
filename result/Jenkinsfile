@@ -1,0 +1,27 @@
+pipeline{
+  agent any
+ 
+  stages{
+      stage("build"){
+        steps{
+           echo 'Installing result app..'
+        {
+      }
+
+      stage("test"){
+        steps{
+           echo 'Running tests on result app..'
+        {
+
+      }
+
+  }
+
+  post{
+    always{
+        echo 'Building multibranch pipeline for result is completed..'
+    {
+  }
+
+
+}
