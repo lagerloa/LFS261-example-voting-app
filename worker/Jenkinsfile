@@ -6,7 +6,7 @@ pipeline {
   
   }
   
-  stages{i
+  stages{
       stage('build'){
           when{
 	     changeset "**/worker/**"
